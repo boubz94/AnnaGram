@@ -1,0 +1,129 @@
+<div>
+  <app-navbar></app-navbar>
+</div>
+
+<div class="containerA" >
+
+  <div id="card1" class="card" >
+    <img *ngIf="solutionImg" src="/assets/pp/{{photoP}}" alt="photo de profil" >
+    <img *ngIf="!solutionImg" src="/assets/pp/{{redirectionImg}}" alt="photo de profil" >
+    <button class="btn-floating halfway-fab waves-effect waves-light purple" (click)="showModal()">
+      <i class="material-icons">add</i>
+    </button>
+    <nz-modal
+      [(nzVisible)]="isVisible"
+      [nzTitle]="modalTitle"
+      [nzContent]="modalContent"
+      [nzFooter]="modalFooter"
+      (nzOnCancel)="handleCancel()"
+    >
+      <ng-template #modalTitle>
+        Photo de profil
+      </ng-template>
+
+      <ng-template #modalContent>
+        <div class="image-preview mb-3" *ngIf="previewUrl">
+          <img id="newPP" [src]="previewUrl" alt="la photo de profil"/>
+        </div>
+        <div class="form-group">
+          <input type="file" name="image" (change)="fileProgress($event)" />
+        </div>
+      </ng-template>
+
+      <ng-template #modalFooter>
+        <button nz-button nzType="default" (click)="handleCancel()">Retour</button>
+        <button nz-button nzType="primary" (click)="handleOk()" [nzLoading]="isConfirmLoading" >
+          Enregistrer
+        </button>
+      </ng-template>
+    </nz-modal>
+  </div>
+
+  <div id="card2" class="card">
+    <div class="description">
+      <p>Je m'appelle {{nom}} {{prenom}}</p>
+      <p *ngIf="profess!='' ">{{profess}}</p>
+      <p *ngIf="infoSupp!='' ">{{infoSupp}}</p>
+      <p *ngIf="philo!='' ">{{philo}}</p>
+      <p *ngIf="GSM!='' "> gsm: {{GSM}}</p>
+    </div>
+    <button class="btn-floating halfway-fab waves-effect waves-light blue-green" (click)="showModal2()">
+      <i class="material-icons">mode_edit</i>
+    </button>
+    <nz-modal
+      [(nzVisible)]="isVisible2"
+      [nzTitle]="modalTitle2"
+      [nzContent]="modalContent2"
+      [nzFooter]="modalFooter2"
+      (nzOnCancel)="handleQuit()"
+    >
+      <form #userfrom="ngForm" (ngSubmit)="handleSave(userfrom)"  >
+        <ng-template #modalTitle2>
+          Modifications des données personnelles :
+        </ng-template>
+
+        <ng-template #modalContent2>
+          <div class="form-group">
+            <label for="nameCU">Votre nom : </label>
+            <input id="nameCU" name="LeName" type="text" [(ngModel)]="nom"  class="form-control" #LeName="ngModel" required>
+            <p  [hidden]="LeName.valid || LeName.pristine" class="alert alert-danger">ce champs est requis !</p>
+          </div>
+          <div class="form-group">
+            <label for="firstNameCU">Votre prénom : </label>
+            <input id="firstNameCU" name="LeFirst"  type="text" [(ngModel)]="prenom" class="form-control" #LeFirst="ngModel" required>
+            <p  [hidden]="LeFirst.valid || LeFirst.pristine" class="alert alert-danger">ce champs est requis !</p>
+          </div>
+          <div class="form-group">
+            <label for="professionCU">Votre profession : </label>
+            <input id="professionCU" name="LeProf" type="text" [(ngModel)]="profess">
+          </div>
+          <div class="form-group">
+            <label for="aboutmeCU">Informations supplémentaires : </label>
+            <input id="aboutmeCU" name="LeAbout" type="text" [(ngModel)]="infoSupp">
+          </div>
+          <div class="form-group">
+            <label for="quoteCU">Phrases philosophiques : </label>
+            <input id="quoteCU" name="LeQuote" type="text" [(ngModel)]="philo">
+          </div>
+          <div class="form-group">
+            <label for="gsmCU">GSM : </label>
+            <input id="gsmCU" name="LeGsm" type="text" [(ngModel)]="GSM">
+          </div>
+
+        </ng-template>
+
+        <ng-template #modalFooter2>
+          <button nz-button nzType="default" (click)="handleQuit()">Abandonner</button>
+          <button nz-button nzType="primary" type="submit" name="action" (click)="handleSave(userfrom)"  [nzLoading]="isConfirmLoading2" [disabled]="userfrom.invalid">Sauvegarder</button>
+        </ng-template>
+      </form>
+    </nz-modal>
+  </div>
+  <div class="divBouton">
+    <button id="btnTempPic" type="button"  class="btn btn-dark"  routerLink="/InsertImageUser">
+      Ajouter une image
+    </button>
+  </div>
+
+  <div class="card" id="cardFor" *ngFor="let item of arrayPics">
+    <div id="titleFor">
+      <span class="card-title">{{item.titlePost}}</span>
+    </div>
+    <div class="card-image">
+      <img  id="imgFor" src="/assets/imageForm/{{item.imagePath}}" alt="vos images">
+    </div>
+    <div id="cntFor" class="card-content">
+      <p>{{item.description}}</p>
+    </div>
+    <div class="card-action">
+      <span>
+        <i class="material-icons">location_on</i>
+        {{item.geolocalisation}}
+      </span>
+      <button id="btnFor" class="btn right waves-effect waves-light" (click)="delete(item)">
+        <i id="delFor" class="material-icons">delete_forever</i>
+      </button>
+    </div>
+  </div>
+
+</div>

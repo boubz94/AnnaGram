@@ -1,0 +1,28 @@
+<div id="navobar">
+
+  <ul nz-menu nzMode="horizontal">
+    <li routerLinkActive="active" nz-menu-item nzSelected >
+      <a routerLink="../home">
+        <i nz-icon nzType="home" nzTheme="outline"></i>
+        Home
+      </a>
+    </li>
+
+    <li routerLinkActive="active" nz-menu-item nzSelected>
+      <a routerLink="../profilUser">
+        <i nz-icon nzType="user" nzTheme="outline"></i>
+        Mon compte
+        {{pseudo}}
+      </a>
+    </li>
+
+    <li id="changer"  nz-menu-item nzSelected (click)="isclicked('changer')" >
+      <a href="../connexion">
+        <i nz-icon nzType="logout" nzTheme="outline"></i>
+        Deconnexion
+      </a>
+    </li>
+
+  </ul>
+</div>
+

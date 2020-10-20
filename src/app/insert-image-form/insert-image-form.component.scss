@@ -1,0 +1,57 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1{
+  font-family: "Times New Roman", Times, serif;
+  color: royalblue;
+  text-align: center;
+  //font-weight: bold;
+}
+.contour{
+  border: 2px solid rgb(78, 78, 78);
+}
+.contour img{
+ width: 350px;
+  height: 350px;
+  padding: 10px;
+}
+#newImg{
+  width: 350px;
+  height: 350px;
+  padding: 10px;
+}
+#fileUp{
+  margin-top: 15px;
+}
+.myForm{
+  margin-top: 30px;
+}
+form label{
+  font-size: 15px;
+  font-weight: bold;
+  color: #9d000b;
+}
+.myBtn{
+  margin-top: 10px;
+  padding-left: 140px;
+  margin-bottom: 20px;
+}
+#btnN{
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  text-align: center;
+  background-color: lightgrey;
+  color: black;
+  padding: 0 15px;
+}
+#btnY{
+  border: 1px solid lightgreen;
+  border-radius: 2px;
+  text-align: center;
+  background-color: lightgreen;
+  color: black;
+  padding: 0 15px;
+  margin-left: 10px;
+}

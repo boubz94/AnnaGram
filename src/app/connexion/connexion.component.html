@@ -1,0 +1,24 @@
+<body>
+<div class="row" class="container">
+  <div><img src="../assets/img/Agarden.png"></div>
+  <form class="col s12" [formGroup]="connexionForm" (ngSubmit)="onSubmit()">
+
+    <div class="row">
+      <div class="input-field col s6" class="form-group">
+        <label for="pseudo">Pseudo</label>
+        <input id="pseudo" type="text" formControlName="pseudo" class="form-control">
+      </div>
+      <div class="input-field col s6" class="form-group">
+        <label for="password">password</label>
+        <input id="password" type="password" formControlName="password" class="form-control">
+      </div>
+      <div class=" center text-center">
+        <button id="b1" class="btn btn-default waves-effect waves-light black" routerLink="../inscription">S'inscrire</button>
+        <button class="btn btn-primary waves-effect waves-light" type="submit" name="action">Se connecter
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+</body>

@@ -1,0 +1,5 @@
+﻿home page :
+
+peut être ajouter un bouton qui ferait ca :  https://ng.ant.design/components/drawer/en
+
+checck que le code pour les card soit clair : ex css bien différencié les class utilisé

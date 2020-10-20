@@ -1,0 +1,87 @@
+.media.testos {
+  background-color: red;
+  position: fixed;
+  padding-right: 150px;
+  margin: auto;
+}
+.container.carta {
+  padding-right: 103px;
+}
+.btn-floating.btn-large.halfway-fab.waves-effect.waves-light.red {
+  //position: absolute;
+}
+agm-map{
+  width: auto;
+  height: 300px;
+}
+[nz-button] {
+  margin-right: 30px;
+  margin-bottom: 12px;
+}
+.col.s12.m8{
+  margin-left: 15%;
+}
+//*************************************** card image********************************************
+.card.large {
+  margin: 50px 0;
+  width: 600px;
+  height: 600px;
+  border: 1px solid Black;
+  border-radius: 20px;
+  background-color: #F3DFDF;
+}
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  padding-left: 15px;
+  padding-top: 5px;
+  color: #800080;
+}
+h6{
+  padding-left: 15px;
+  color: #0000ff;
+}
+i {
+  font-size: 20px;
+}
+#des{
+  font-size: medium;
+  color: black;
+}
+#idName{
+  margin: 0;
+}
+.card.large .card-image {
+  height: 410px;
+  max-height: 100%;
+ }
+img{
+  padding: 5px 15px;
+  height: 410px;
+}
+.card-content{
+  padding: 10px 15px;
+  height: max-content;
+}
+.card-action{
+  padding: 5px 80px 5px 100px;
+}
+.card .card-action:last-child{
+  border-radius: 20px;
+}
+.rounded {
+  border-radius: 1rem;
+}
+//****************************** Modal commentaires ****************************************
+#idPseud{
+  font-weight: bold;
+}
+#bOk{
+  margin: 5px;
+}
+#love{
+  margin: 5px;
+}
+#g{
+  margin: 5px;
+}

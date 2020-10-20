@@ -1,0 +1,104 @@
+<div>
+  <h4>
+    <a href="../connexion">
+      <i nz-icon nzType="logout" nzTheme="outline"></i>
+      Deconnexion
+    </a>
+  </h4>
+
+</div>
+<!--   USERS LIST-->
+<div class="container">
+  <h3>Liste des utilisateurs</h3>
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">#ID</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">Pseudo</th>
+      <th scope="col">Pass</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of userArray">
+      <td>{{ item.id_user }}</td>
+      <td>{{ item.lname }}</td>
+      <td>{{ item.fname }}</td>
+      <td>{{ item.pseudo }}</td>
+      <td>{{ item.pass }}</td>
+      <td>
+        <button id="deleteUser" type="button" (click)="deleteUser(item.id_user)" class="btn btn-danger">supprimer</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+<!--  POST USER-->
+  <div class="container">
+    <h3>Liste des post</h3>
+    <table class="table">
+      <thead class="thead-light">
+      <tr>
+        <th scope="col">#ID Post</th>
+        <th scope="col">Pseudo </th>
+        <th scope="col">Titre post</th>
+        <th scope="col">Description</th>
+        <th scope="col">Geolocalisation</th>
+        <th scope="col" colspan="2" >Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of postArray">
+        <td>{{ item.id_post }}</td>
+        <td>{{ item.pseudo }}</td>
+        <td>{{ item.titlePost }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.geolocalisation }}</td>
+        <td>
+          <button id="deletePost" type="button" (click)="deletePost(item.id_post)" class="btn btn-danger">supprimer
+          </button>
+        </td>
+        <td>
+          <button id="showComment" type="button" (click)="checkComment(item.id_post)" class=" btn btn-info">Voir commentaire
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <nz-drawer
+    [nzClosable]="false"
+    [nzVisible]="visible"
+    [nzPlacement]="placement"
+    [nzWidth]="auto"
+    nzTitle="Commentaire des post"
+    (nzOnClose)="close()"
+  >
+    <h3>Liste des Commentaires</h3>
+    <table class="table">
+      <thead class="thead-light">
+      <tr>
+        <th scope="col">#ID Commentaire</th>
+        <th scope="col">Pseudo </th>
+        <th scope="col">Commentaire</th>
+        <th scope="col"  >Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of commentArray">
+        <td>{{ item.id_comment }}</td>
+        <td>{{ item.pseudo }}</td>
+        <td>{{ item.comment }}</td>
+        <td>
+          <button  id="deleteComment" type="button" (click)="deleteComment(item)" class="btn btn-danger">supprimer
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </nz-drawer>
+

@@ -1,0 +1,36 @@
+<div class="container" >
+
+  <div>
+    <h1>Insertion d'une image</h1>
+  </div>
+
+  <div class="contour">
+    <img  *ngIf="situation!=true" src="../assets/imageForm/photo.jpg" alt="photo de vide" >
+    <img *ngIf="previewUrl" id="newImg" [src]="previewUrl"/>
+  </div>
+  <div class="form-group" id="fileUp">
+    <input type="file" name="image" (change)="fileProgress($event)" />
+  </div>
+
+  <div class="myForm">
+    <form [formGroup]="insertPicsForm" (ngSubmit)="onSave()">
+      <div class="form-group">
+        <label for="title">Titre : </label>
+        <input id="title" type="text" formControlName="titleImg"  >
+      </div>
+      <div class="form-group">
+        <label for="description">Description : </label>
+        <input id="description" type="text" formControlName="descriptionImg"  >
+      </div>
+      <div class="form-group">
+        <label for="localisation">Localisation : </label>
+        <input id="localisation" type="text" formControlName="localImg"  >
+      </div>
+      <div class="myBtn">
+        <button id="btnN" class="btn btn-secondary" type="button"  routerLink="/profilUser">Retour</button>
+        <button id="btnY" class="btn btn-success" type="submit" name="action" >Enregistrer</button>
+      </div>
+    </form>
+  </div>
+
+</div>
